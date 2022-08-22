@@ -70,44 +70,44 @@ Output = StringVar()
 #headingFrame1 = Frame(wn,bg="blue",bd=5)
 #headingFrame1.place(x=20, y=100)
 
-headingLabel = Label(wn, text=" Welcome to \n Encryptor Decryptor", fg='grey19', font=('Courier',20,'bold'), borderwidth=1.5, relief="solid", width=25, height=4)
-headingLabel.place(x=125, y=40)
+headingLabel = Label(wn, text=" Welcome to \n Encryptor Decryptor", bg='black',fg='white', font=('Raleway',30,'bold'), borderwidth=1.5, relief="solid", width=25, height=4)
+headingLabel.place(x=55, y=10)
 
 
-label1 = Label(wn, text='Enter the Message', font=('Courier',14, 'bold'))
+label1 = Label(wn, text='Enter the Message', bg='blanchedalmond',fg='black',font=('Courier',20, 'bold'))
 label1.place(x=10,y=200)
 
-msg = Entry(wn,textvariable=Message, width=35, font=('calibre',12,'normal'))
+msg = Entry(wn,textvariable=Message,bg='white',fg='black', width=35, font=('calibre',15,'normal'))
 msg.place(x=250,y=200)
 
-label2 = Label(wn, text='Enter the key', font=('Courier',14, 'bold'))
+label2 = Label(wn, text='Enter the key', bg='blanchedalmond',fg='black',font=('Courier',20, 'bold'))
 label2.place(x=10,y=275)
 
-InpKey = Entry(wn, textvariable=key,  width=35,font=('calibre',12,'normal'))
+InpKey = Entry(wn, textvariable=key,bg='white',fg='black',  width=35,font=('calibre',15,'normal'))
 InpKey.place(x=250,y=275)
 
-label3 = Label(wn, text='Click one', font=('Courier',14, 'bold'))
+label3 = Label(wn, text='Click one',bg='blanchedalmond',fg='black', font=('Courier',20, 'bold'))
 label3.place(x=10,y=350)
 
-Radiobutton(wn, text='Encrypt',  variable=mode, value=1, font=('Courier',12, 'bold')).place(x=250,y=350) 
-Radiobutton(wn, text='Decrypt', variable=mode, value=2, font=('Courier',12, 'bold')).place(x=350,y=350) 
+Radiobutton(wn, text='Encrypt',  bg='blanchedalmond',fg='black',variable=mode, value=1, font=('Courier',20, 'bold')).place(x=250,y=350) 
+Radiobutton(wn, text='Decrypt', bg='blanchedalmond',fg='black',variable=mode, value=2, font=('Courier',20, 'bold')).place(x=450,y=350) 
 
-label3 = Label(wn, text='Result', font=('Courier',14, 'bold'))
+label3 = Label(wn, text='Result', bg='blanchedalmond',fg='black',font=('Courier',20, 'bold'))
 label3.place(x=10,y=425)
 
-res = Entry(wn,textvariable=Output, width=35, font=('calibre',12,'normal'))
+res = Entry(wn,textvariable=Output, width=35,bg='white',fg='black', font=('calibre',15,'normal'))
 res.place(x=250,y=425)
 
 
-ResetBtn = Button(wn, text='Reset', bg='honeydew2', fg='black', width=15,height=1,command=Reset)
+ResetBtn = Button(wn, text='Reset',bg='black' ,width=15,height=1,command=Reset)
 ResetBtn['font'] = font.Font( size=14)
 ResetBtn.place(x=40,y=500)
 
-ShowBtn = Button(wn,text="Show Message",bg='lavender blush2', fg='black',width=15,height=1,command=Result)
+ShowBtn = Button(wn,text="Show Message",bg='black',fg='green',width=15,height=1,command=Result)
 ShowBtn['font'] = font.Font( size=14)
 ShowBtn.place(x=230,y=500)
 
-QuitBtn = Button(wn, text='Exit', fg='black',width=15,height=1, command=wn.destroy)
+QuitBtn = Button(wn, text='Exit', bg='black',fg='red',width=15,height=1, command=wn.destroy)
 QuitBtn['font'] = font.Font( size=14)
 QuitBtn.place(x=420,y=500)
 
