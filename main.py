@@ -35,7 +35,7 @@ def Result():
     elif(i==2):
         Output.set(decode(k, msg))
     else:
-        messagebox.showinfo('Encrypt & Decrypt', 'Please Choose one of Encryption or Decrption. Try again.')
+        messagebox.showinfo('Encrypt & Decrypt', 'Please Choose one of Encryption or Decrption and Try again.')
 
 #Function that executes on clicking Reset function
 def Reset():
@@ -46,60 +46,70 @@ def Reset():
     
 
 wn = Tk()
-wn.geometry("530x500")
+wn.geometry("630x600")
+#wn.eval('tk::PlaceWindow . center')
 wn.configure(bg='blanchedalmond')
-wn.title("Encrypt and Decrypt your Messages with ProjectGurukul")
+wn.title("Encryptor Decryptor")
 wn.resizable(False,False)
+# Gets the requested values of the height and width.
+windowWidth = wn.winfo_reqwidth()
+windowHeight = wn.winfo_reqheight()
+ 
+# Gets both half the screen width/height and window width/height
+positionRight = int(wn.winfo_screenwidth()/2 - windowWidth/2)
+positionDown = int(wn.winfo_screenheight()/2 - windowHeight/2)
+ 
+# Positions the window in the center of the page.
+wn.geometry("+{}+{}".format(positionRight, positionDown))
 
 Message = StringVar()
 key = StringVar()
 mode = IntVar()
 Output = StringVar()
 
-headingFrame1 = Frame(wn,bg="aliceblue",bd=5)
-headingFrame1.place(relx=0.2,rely=0.1,relwidth=0.7,relheight=0.16)
+#headingFrame1 = Frame(wn,bg="blue",bd=5)
+#headingFrame1.place(x=20, y=100)
 
-headingLabel = Label(headingFrame1, text=" Welcome to Encryption and \nDecryption with ProjectGurukul", fg='grey19', font=('Courier',13,'bold'))
-headingLabel.place(relx=0,rely=0, relwidth=1, relheight=1)
+headingLabel = Label(wn, text=" Welcome to \n Encryptor Decryptor", fg='grey19', font=('Courier',20,'bold'), borderwidth=1.5, relief="solid", width=25, height=4)
+headingLabel.place(x=125, y=40)
 
 
-label1 = Label(wn, text='Enter the Message', font=('Courier',10))
-label1.place(x=10,y=150)
+label1 = Label(wn, text='Enter the Message', font=('Courier',14, 'bold'))
+label1.place(x=10,y=200)
 
-msg = Entry(wn,textvariable=Message, width=35, font=('calibre',10,'normal'))
-msg.place(x=200,y=150)
+msg = Entry(wn,textvariable=Message, width=35, font=('calibre',12,'normal'))
+msg.place(x=250,y=200)
 
-label2 = Label(wn, text='Enter the key', font=('Courier',10))
-label2.place(x=10,y=200)
+label2 = Label(wn, text='Enter the key', font=('Courier',14, 'bold'))
+label2.place(x=10,y=275)
 
-InpKey = Entry(wn, textvariable=key,  width=35,font=('calibre',10,'normal'))
-InpKey.place(x=200,y=200)
+InpKey = Entry(wn, textvariable=key,  width=35,font=('calibre',12,'normal'))
+InpKey.place(x=250,y=275)
 
-label3 = Label(wn, text='Check one of encrypt or decrypt', font=('Courier',10))
-label3.place(x=10,y=250)
-
-Radiobutton(wn, text='Encrypt', variable=mode, value=1).place(x=100,y=300) 
-Radiobutton(wn, text='Decrypt', variable=mode, value=2).place(x=200,y=300) 
-
-label3 = Label(wn, text='Result', font=('Courier',10))
+label3 = Label(wn, text='Click one', font=('Courier',14, 'bold'))
 label3.place(x=10,y=350)
 
-res = Entry(wn,textvariable=Output, width=35, font=('calibre',10,'normal'))
-res.place(x=200,y=350)
+Radiobutton(wn, text='Encrypt',  variable=mode, value=1, font=('Courier',12, 'bold')).place(x=250,y=350) 
+Radiobutton(wn, text='Decrypt', variable=mode, value=2, font=('Courier',12, 'bold')).place(x=350,y=350) 
 
+label3 = Label(wn, text='Result', font=('Courier',14, 'bold'))
+label3.place(x=10,y=425)
 
+res = Entry(wn,textvariable=Output, width=35, font=('calibre',12,'normal'))
+res.place(x=250,y=425)
 
-ShowBtn = Button(wn,text="Show Message",bg='lavender blush2', fg='black',width=15,height=1,command=Result)
-ShowBtn['font'] = font.Font( size=12)
-ShowBtn.place(x=180,y=400)
 
 ResetBtn = Button(wn, text='Reset', bg='honeydew2', fg='black', width=15,height=1,command=Reset)
-ResetBtn['font'] = font.Font( size=12)
-ResetBtn.place(x=15,y=400)
+ResetBtn['font'] = font.Font( size=14)
+ResetBtn.place(x=40,y=500)
+
+ShowBtn = Button(wn,text="Show Message",bg='lavender blush2', fg='black',width=15,height=1,command=Result)
+ShowBtn['font'] = font.Font( size=14)
+ShowBtn.place(x=230,y=500)
 
 QuitBtn = Button(wn, text='Exit', fg='black',width=15,height=1, command=wn.destroy)
-QuitBtn['font'] = font.Font( size=12)
-QuitBtn.place(x=345,y=400)
+QuitBtn['font'] = font.Font( size=14)
+QuitBtn.place(x=420,y=500)
 
 
 wn.mainloop()
